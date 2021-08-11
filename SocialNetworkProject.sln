@@ -7,6 +7,12 @@ Project("{FAE04EC0-301F-11D3-BF4B-00C04F79EFBC}") = "SocialNetworkConsole", "Soc
 EndProject
 Project("{FAE04EC0-301F-11D3-BF4B-00C04F79EFBC}") = "SocialNetwork.WebAPI", "SocialNetwork.WebAPI\SocialNetwork.WebAPI.csproj", "{24AA4C83-CD3A-44C0-A797-E5A46C0909B9}"
 EndProject
+Project("{FAE04EC0-301F-11D3-BF4B-00C04F79EFBC}") = "SocialNetwork.Data", "SocialNetwork.Data\SocialNetwork.Data.csproj", "{7B982820-0B66-4D81-951A-4AE1A56D054E}"
+EndProject
+Project("{FAE04EC0-301F-11D3-BF4B-00C04F79EFBC}") = "SocialNetwork.Models", "SocialNetwork.Models\SocialNetwork.Models.csproj", "{D35F2BFC-6D22-4470-8096-8E62E18524CF}"
+EndProject
+Project("{FAE04EC0-301F-11D3-BF4B-00C04F79EFBC}") = "SocialNetwork.Services", "SocialNetwork.Services\SocialNetwork.Services.csproj", "{69D2BCAD-358F-4352-AD8F-8E80C58A3249}"
+EndProject
 Global
 	GlobalSection(SolutionConfigurationPlatforms) = preSolution
 		Debug|Any CPU = Debug|Any CPU
@@ -21,6 +27,18 @@ Global
 		{24AA4C83-CD3A-44C0-A797-E5A46C0909B9}.Debug|Any CPU.Build.0 = Debug|Any CPU
 		{24AA4C83-CD3A-44C0-A797-E5A46C0909B9}.Release|Any CPU.ActiveCfg = Release|Any CPU
 		{24AA4C83-CD3A-44C0-A797-E5A46C0909B9}.Release|Any CPU.Build.0 = Release|Any CPU
+		{7B982820-0B66-4D81-951A-4AE1A56D054E}.Debug|Any CPU.ActiveCfg = Debug|Any CPU
+		{7B982820-0B66-4D81-951A-4AE1A56D054E}.Debug|Any CPU.Build.0 = Debug|Any CPU
+		{7B982820-0B66-4D81-951A-4AE1A56D054E}.Release|Any CPU.ActiveCfg = Release|Any CPU
+		{7B982820-0B66-4D81-951A-4AE1A56D054E}.Release|Any CPU.Build.0 = Release|Any CPU
+		{D35F2BFC-6D22-4470-8096-8E62E18524CF}.Debug|Any CPU.ActiveCfg = Debug|Any CPU
+		{D35F2BFC-6D22-4470-8096-8E62E18524CF}.Debug|Any CPU.Build.0 = Debug|Any CPU
+		{D35F2BFC-6D22-4470-8096-8E62E18524CF}.Release|Any CPU.ActiveCfg = Release|Any CPU
+		{D35F2BFC-6D22-4470-8096-8E62E18524CF}.Release|Any CPU.Build.0 = Release|Any CPU
+		{69D2BCAD-358F-4352-AD8F-8E80C58A3249}.Debug|Any CPU.ActiveCfg = Debug|Any CPU
+		{69D2BCAD-358F-4352-AD8F-8E80C58A3249}.Debug|Any CPU.Build.0 = Debug|Any CPU
+		{69D2BCAD-358F-4352-AD8F-8E80C58A3249}.Release|Any CPU.ActiveCfg = Release|Any CPU
+		{69D2BCAD-358F-4352-AD8F-8E80C58A3249}.Release|Any CPU.Build.0 = Release|Any CPU
 	EndGlobalSection
 	GlobalSection(SolutionProperties) = preSolution
 		HideSolutionNode = FALSE
