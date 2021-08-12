@@ -11,50 +11,50 @@ using System.Web.Http;
 namespace SocialNetwork.WebAPI.Controllers
 {
     [Authorize]
-    public class NoteController : ApiController
+    public class SocialController : ApiController
     {
         public IHttpActionResult Get()
         {
-            NoteService noteService = CreateNoteService();
+            SocialService noteService = CreateNoteService();
             var notes = noteService.GetNotes();
             return Ok(notes);
         }
 
-        public IHttpActionResult Post(NoteCreate note)
+        public IHttpActionResult Post(SocialCreate social)
         {
             if (!ModelState.IsValid) 
                 return BadRequest(ModelState);
 
             var service = CreateNoteService();
 
-            if (!service.CreateNote(note)) 
+            if (!service.CreateSocial(social)) 
                 return InternalServerError();
             
             return Ok();
         }
 
-        private NoteService CreateNoteService()
+        private SocialService CreateNoteService()
         {
             var userId = Guid.Parse(User.Identity.GetUserId());
-            var noteService = new NoteService(userId);
-            return noteService;
+            var socialService = new SocialService(userId);
+            return socialService;
         }
 
         public IHttpActionResult Get(int id)
         {
-            NoteService noteService = CreateNoteService();
-            var note = noteService.GetNoteById(id);
-            return Ok(note);
+            SocialService socialService = CreateNoteService();
+            var social = socialService.GetSocialById(id);
+            return Ok(social);
         }
 
-        public IHttpActionResult Put(NoteEdit note)
+        public IHttpActionResult Put(SocialEdit social)
         {
             if (!ModelState.IsValid)
                 return BadRequest(ModelState);
 
             var service = CreateNoteService();
 
-            if (!service.UpdateNote(note))
+            if (!service.UpdateSocial(social))
                 return InternalServerError();
 
             return Ok();
@@ -63,7 +63,7 @@ namespace SocialNetwork.WebAPI.Controllers
         public IHttpActionResult Delete(int id)
         {
             var service = CreateNoteService();
-            if (!service.DeleteNote(id))
+            if (!service.DeleteSocial(id))
                 return InternalServerError();
 
             return Ok();
