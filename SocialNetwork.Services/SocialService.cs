@@ -17,7 +17,7 @@ namespace SocialNetwork.Services
             _userId = userId;
         }
 
-        public bool CreateSocial(SocialCreate model)
+        public bool CreateSocial(PostCreate model)
         {
             var entity = 
                 new Social()

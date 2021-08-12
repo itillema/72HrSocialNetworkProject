@@ -7,7 +7,7 @@ using System.Threading.Tasks;
 
 namespace SocialNetwork.Models
 {
-    public class SocialCreate
+    public class PostCreate
     {
         [Required]
         [MinLength(2, ErrorMessage = "Please enter at least 2 characters.")]

@@ -20,7 +20,7 @@ namespace SocialNetwork.WebAPI.Controllers
             return Ok(notes);
         }
 
-        public IHttpActionResult Post(SocialCreate social)
+        public IHttpActionResult Post(PostCreate social)
         {
             if (!ModelState.IsValid) 
                 return BadRequest(ModelState);
