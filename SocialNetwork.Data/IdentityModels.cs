@@ -34,6 +34,8 @@ namespace SocialNetwork.Data
         }
 
         public DbSet<Social> Notes { get; set; }
+        public object Social { get; set; }
+
         protected override void OnModelCreating(DbModelBuilder modelBuilder)
         {
             modelBuilder

@@ -29,7 +29,7 @@ namespace SocialNetwork.Services
                 };
             using (var ctx = new ApplicationDbContext())
             {
-                ctx.Socials.Add(entity);
+                ctx.Social.Add(entity);
                 return ctx.SaveChanges() == 1;
             }
         }
@@ -40,7 +40,7 @@ namespace SocialNetwork.Services
             {
                 var query =
                     ctx
-                        .Socials
+                        .Social
                         .Where(e => e.OwnerId == _userId)
                         .Select(
                                 e =>
@@ -61,7 +61,7 @@ namespace SocialNetwork.Services
             {
                 var entity =
                     ctx
-                        .Socials
+                        .Social
                         .Single(e => e.NoteId == id && e.OwnerId == _userId);
                 return
                     new SocialDetail
@@ -75,13 +75,18 @@ namespace SocialNetwork.Services
             }
         }
 
+        public bool DeleteSocial(int id)
+        {
+            throw new NotImplementedException();
+        }
+
         public bool UpdateSocial(SocialEdit model)
         {
             using (var ctx = new ApplicationDbContext())
             {
                 var entity =
                     ctx
-                        .Socials
+                        .Social
                         .Single(e => e.SocialId == model.SocialId && e.OwnerId == _userId);
 
                 entity.Title = model.Title;
@@ -98,9 +103,9 @@ namespace SocialNetwork.Services
             {
                 var entity =
                     ctx
-                        .Socials
+                        .Social
                         .Single(e => e.SocialId == socialId && e.OwnerId == _userId);
-                ctx.Socials.Remove(entity);
+                ctx.Social.Remove(entity);
 
                 return ctx.SaveChanges() == 1;
             }
