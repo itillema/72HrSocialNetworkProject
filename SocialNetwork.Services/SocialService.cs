@@ -19,7 +19,7 @@ namespace SocialNetwork.Services
 
         public bool CreateSocial(SocialCreate model)
         {
-            var entity =
+            var entity = 
                 new Social()
                 {
                     OwnerId = _userId,
