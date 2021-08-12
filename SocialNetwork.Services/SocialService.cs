@@ -29,7 +29,7 @@ namespace SocialNetwork.Services
                 };
             using (var ctx = new ApplicationDbContext())
             {
-                ctx.Social.Add(entity);
+                ctx.Socials.Add(entity);
                 return ctx.SaveChanges() == 1;
             }
         }
@@ -40,7 +40,7 @@ namespace SocialNetwork.Services
             {
                 var query =
                     ctx
-                        .Social
+                        .Socials
                         .Where(e => e.OwnerId == _userId)
                         .Select(
                                 e =>
@@ -61,8 +61,8 @@ namespace SocialNetwork.Services
             {
                 var entity =
                     ctx
-                        .Social
-                        .Single(e => e.NoteId == id && e.OwnerId == _userId);
+                        .Socials
+                        .Single(e => e.SocialId == id && e.OwnerId == _userId);
                 return
                     new SocialDetail
                     {
@@ -86,7 +86,7 @@ namespace SocialNetwork.Services
             {
                 var entity =
                     ctx
-                        .Social
+                        .Socials
                         .Single(e => e.SocialId == model.SocialId && e.OwnerId == _userId);
 
                 entity.Title = model.Title;
@@ -103,9 +103,9 @@ namespace SocialNetwork.Services
             {
                 var entity =
                     ctx
-                        .Social
+                        .Socials
                         .Single(e => e.SocialId == socialId && e.OwnerId == _userId);
-                ctx.Social.Remove(entity);
+                ctx.Socials.Remove(entity);
 
                 return ctx.SaveChanges() == 1;
             }
