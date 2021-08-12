@@ -33,7 +33,7 @@ namespace SocialNetwork.Data
             return new ApplicationDbContext();
         }
 
-        public DbSet<Social> Notes { get; set; }
+        public DbSet<Social> Socials { get; set; }
         public object Social { get; set; }
 
         protected override void OnModelCreating(DbModelBuilder modelBuilder)
