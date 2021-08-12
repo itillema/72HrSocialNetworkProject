@@ -102,11 +102,22 @@
     </Reference>
   </ItemGroup>
   <ItemGroup>
+    <Compile Include="NoteService.cs" />
     <Compile Include="Properties\AssemblyInfo.cs" />
   </ItemGroup>
   <ItemGroup>
     <None Include="App.config" />
     <None Include="packages.config" />
+  </ItemGroup>
+  <ItemGroup>
+    <ProjectReference Include="..\SocialNetwork.Data\SocialNetwork.Data.csproj">
+      <Project>{7b982820-0b66-4d81-951a-4ae1a56d054e}</Project>
+      <Name>SocialNetwork.Data</Name>
+    </ProjectReference>
+    <ProjectReference Include="..\SocialNetwork.Models\SocialNetwork.Models.csproj">
+      <Project>{d35f2bfc-6d22-4470-8096-8e62e18524cf}</Project>
+      <Name>SocialNetwork.Models</Name>
+    </ProjectReference>
   </ItemGroup>
   <Import Project="$(MSBuildToolsPath)\Microsoft.CSharp.targets" />
   <Target Name="EnsureNuGetPackageBuildImports" BeforeTargets="PrepareForBuild">
