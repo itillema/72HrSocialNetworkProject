@@ -8,19 +8,19 @@ using System.Threading.Tasks;
 
 namespace SocialNetwork.Services
 {
-    public class NoteService
+    public class SocialService
     {
         private readonly Guid _userId;
 
-        public NoteService(Guid userId)
+        public SocialService(Guid userId)
         {
             _userId = userId;
         }
 
-        public bool CreateNote(NoteCreate model)
+        public bool CreateSocial(SocialCreate model)
         {
             var entity =
-                new Note()
+                new Social()
                 {
                     OwnerId = _userId,
                     Title = model.Title,
@@ -29,44 +29,44 @@ namespace SocialNetwork.Services
                 };
             using (var ctx = new ApplicationDbContext())
             {
-                ctx.Notes.Add(entity);
+                ctx.Social.Add(entity);
                 return ctx.SaveChanges() == 1;
             }
         }
 
-        public IEnumerable<NoteListItem> GetNotes()
+        public IEnumerable<SocialListItem> GetNotes()
         {
             using (var ctx = new ApplicationDbContext())
             {
                 var query =
                     ctx
-                        .Notes
+                        .Social
                         .Where(e => e.OwnerId == _userId)
                         .Select(
-                            e =>
-                                new NoteListItem
-                                {
-                                    NoteId = e.NoteId,
-                                    Title = e.Title,
-                                    CreatedUtc = e.CreatedUtc
-                                }
+                                e =>
+                                    new SocialListItem
+                                    {
+                                        SocialId = e.SocialId,
+                                        Title = e.Title,
+                                        CreatedUtc = e.CreatedUtc
+                                    }
                                 );
                 return query.ToArray();
             }
         }
 
-        public NoteDetail GetNoteById(int id)
+        public SocialDetail GetSocialById(int id)
         {
             using (var ctx = new ApplicationDbContext())
             {
                 var entity =
                     ctx
-                        .Notes
+                        .Social
                         .Single(e => e.NoteId == id && e.OwnerId == _userId);
                 return
-                    new NoteDetail
+                    new SocialDetail
                     {
-                        NoteId = entity.NoteId,
+                        SocialId = entity.SocialId,
                         Title = entity.Title,
                         Content = entity.Content,
                         CreatedUtc = entity.CreatedUtc,
@@ -75,14 +75,19 @@ namespace SocialNetwork.Services
             }
         }
 
-        public bool UpdateNote(NoteEdit model)
+        public bool DeleteSocial(int id)
+        {
+            throw new NotImplementedException();
+        }
+
+        public bool UpdateSocial(SocialEdit model)
         {
             using (var ctx = new ApplicationDbContext())
             {
                 var entity =
                     ctx
-                        .Notes
-                        .Single(e => e.NoteId == model.NoteId && e.OwnerId == _userId);
+                        .Social
+                        .Single(e => e.SocialId == model.SocialId && e.OwnerId == _userId);
 
                 entity.Title = model.Title;
                 entity.Content = model.Content;
@@ -92,15 +97,15 @@ namespace SocialNetwork.Services
             }
         }
 
-        public bool DeleteNote(int noteId)
+        public bool SocialNote(int socialId)
         {
             using (var ctx = new ApplicationDbContext())
             {
                 var entity =
                     ctx
-                        .Notes
-                        .Single(e => e.NoteId == noteId && e.OwnerId == _userId);
-                ctx.Notes.Remove(entity);
+                        .Social
+                        .Single(e => e.SocialId == socialId && e.OwnerId == _userId);
+                ctx.Social.Remove(entity);
 
                 return ctx.SaveChanges() == 1;
             }
