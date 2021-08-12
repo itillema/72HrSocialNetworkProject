@@ -6,9 +6,9 @@ using System.Threading.Tasks;
 
 namespace SocialNetwork.Models
 {
-    public class NoteEdit
+    public class SocialEdit
     {
-        public int NoteId { get; set; }
+        public int SocialId { get; set; }
         public string Title { get; set; }
         public string Content { get; set; }
     }
